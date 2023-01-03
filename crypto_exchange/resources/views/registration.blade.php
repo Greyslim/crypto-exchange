@@ -12,6 +12,13 @@
 <form class="col-3 offset-4 border-4 border rounded" method="POST" action="{{route("user.registration")}}">
     @csrf
     <div class="form-group">
+        <label for='name' class="col-form-label-lg">Name</label>
+        <input class="form-control" id="name" name="name" type="text" value="" placeholder="Enter name">
+        @error('name')
+        <div class="alert alert-danger">{{$message}}</div>
+        @enderror
+    </div>
+    <div class="form-group">
         <label for='email' class="col-form-label-lg">Email</label>
         <input class="form-control" id="email" name="email" type="text" value="" placeholder="Enter email">
         @error('email')

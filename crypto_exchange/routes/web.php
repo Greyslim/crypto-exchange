@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +27,12 @@ Route::name('user.')->group(function(){
         }
         return view('login');
     })->name('login');
-//    Route::post('/login', [])
+    Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login']);
 
-//    route::get('/logout',[])->name('logout');
+    Route::get('/logout',function(){
+        Auth::logout();
+        return redirect(route('user.login'));
+    })->name('logout');
 
     Route::get('/registration',function(){
         if(Auth::check()){
@@ -37,5 +41,5 @@ Route::name('user.')->group(function(){
         return view('registration');
     })->name('registration');
 
-//    Route::post('/registration', [])
+    Route::post('/registration', [\App\Http\Controllers\RegistrationController::class, 'save']);
 });
