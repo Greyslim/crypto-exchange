@@ -6,4 +6,4 @@ RUN apt-get update && apt-get install -y curl git zip npm net-tools
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
-RUN composer create-project laravel/laravel example-app 9.0
+RUN composer create-project laravel/laravel crypto_exchange 9.0

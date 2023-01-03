@@ -20,5 +20,5 @@ services:
     working_dir: /app
     ports:
       - 8080:8080
-    command: php -S 0.0.0.0:8000 -t /app
-#    command: php example-app/artisan serve --host=0.0.0.0 --port=8080
+#    command: php -S 0.0.0.0:8000 -t /app
+    command: php crypto_exchange/artisan serve --host=0.0.0.0 --port=8080
