@@ -17,9 +17,9 @@ return new class extends Migration
         Schema::create('user_cryptocurrency_tokens', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('Cascade');
             $table->bigInteger('cryptocurrency_token_id')->unsigned();
-            $table->foreign('cryptocurrency_token_id')->references('id')->on('cryptocurrency_tokens');
+            $table->foreign('cryptocurrency_token_id')->references('id')->on('cryptocurrency_tokens')->onDelete('Cascade');
             $table->double('amount')->unsigned();
             $table->timestamps();
         });

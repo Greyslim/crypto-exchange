@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use DB;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -26,8 +27,13 @@ class RegistrationController extends Controller
         };
 
         $user = User::create($validateFields);
+
         if($user){
             Auth::login($user);
+
+            // Add Start Coin
+            DB::select('call sp_add_start_coin(?)',array($user->id));
+
             return redirect(route('user.main'));
         }
 
