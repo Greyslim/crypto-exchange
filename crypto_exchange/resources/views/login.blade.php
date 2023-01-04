@@ -12,7 +12,7 @@
         </div>
         <div class="form-group">
             <label for='password' class="col-form-label-lg">Password</label>
-            <input class="form-control" id="password" name="password" type="text" value="" placeholder="Enter password">
+            <input class="form-control" id="password" name="password" type="password" value="" placeholder="Enter password">
             @error('password')
             <div class="alert alert-danger">{{$message}}</div>
             @enderror

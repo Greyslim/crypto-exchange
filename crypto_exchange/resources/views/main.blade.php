@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('content')
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-dark bg-dark">
         @csrf
-        <form class="form-inline" method="GET" action="{{route("user.logout")}}">
-          <button class="btn btn-success" type="submit">Logout</button>
+        <form class="pull-right" style="float:right" method="GET" action="{{route("user.logout")}}">
+            <button class="btn btn-success pull-right" type="submit">Logout</button>
         </form>
     </nav>
  
