@@ -33,6 +33,9 @@ class RegistrationController extends Controller
 
             // Add Start Coin
             DB::select('call sp_add_start_coin(?)',array($user->id));
+            
+            // Msg about receiving coins
+            \Session::flash('flash_message','Congratulations, for registration you get 1 USDT and 0.001 BTC');
 
             return redirect(route('user.main'));
         }
