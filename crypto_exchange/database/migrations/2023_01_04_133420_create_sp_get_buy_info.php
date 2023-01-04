@@ -31,7 +31,7 @@ BEGIN
     SELECT ct.short_name AS coin_name_to,
       ct1.short_name AS coin_name_from,
       CONCAT('Price ',ct1.short_name,'=>',ct.short_name) AS caption_price,
-      rct.price,
+      CAST(rct.price AS decimal(18,10)) AS price,
       CONCAT('Amount ',ct.short_name) AS caption_amount_to,
       uct.amount AS amount_to,
       CONCAT('Amount ',ct1.short_name) AS caption_amount_from,
