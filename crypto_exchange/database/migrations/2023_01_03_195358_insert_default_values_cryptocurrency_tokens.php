@@ -13,8 +13,8 @@ return new class extends Migration
     public function up()
     {
         DB::table('cryptocurrency_tokens')->insert([
-            ["name" => "Bitcoin", "short_name" => "BTC","sys_id" => 1],
-            ["name" => "Tether", "short_name" => "USDT", "sys_id" => 825],
+            ["name" => "Bitcoin", "short_name" => "BTC"],
+            ["name" => "Tether", "short_name" => "USDT"],
         ]);
 
     }
