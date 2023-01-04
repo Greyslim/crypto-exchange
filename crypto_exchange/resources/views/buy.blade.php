@@ -14,33 +14,41 @@
         <div class="form-group row">
             <label for="staticCoin" class="col-sm-2 col-form-label">Coin</label>
             <div class="col-sm-10">
-              <input type="text" readonly class="form-control-plaintext" id="staticCoin" value="BTC">
+              <input type="text" readonly class="form-control-plaintext" id="staticCoin" value={{$buy_info->coin_name_to}}>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="staticPriceCoin" class="col-sm-2 col-form-label">Price BTC</label>
+            <label for="staticHaveCoin" class="col-sm-2 col-form-label">{{$buy_info->caption_amount_to}}</label>
             <div class="col-sm-10">
-                <input type="text" readonly class="form-control" id="staticPriceCoin" placeholder="16340.11">
+              <input type="text" readonly class="form-control-plaintext" id="staticHaveCoin" value={{$buy_info->amount_to}}>
             </div>
         </div>
 
         <div class="form-group row">
             <label for="staticBuyForCoin" class="col-sm-2 col-form-label">Buy for Coin</label>
             <div class="col-sm-10">
-              <input type="text" readonly class="form-control-plaintext" id="staticBuyForCoin" value="USDT">
+              <input type="text" readonly class="form-control-plaintext" id="staticBuyForCoin" value={{$buy_info->coin_name_from}}>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="inputAmountCoin" class="col-sm-2 col-form-label">Amount USDT</label>
+            <label for="staticPriceCoin" class="col-sm-2 col-form-label">{{$buy_info->caption_price}}</label>
             <div class="col-sm-10">
-                <input type="text" readonly class="form-control" id="inputAmount" placeholder="152.12">
+                <input type="text" readonly class="form-control" id="staticPriceCoin" value={{$buy_info->price}}>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="inputAmountCoin" class="col-sm-2 col-form-label">{{$buy_info->caption_amount_from}}</label>
+            <div class="col-sm-10">
+                <input type="text" readonly class="form-control" id="inputAmount" value={{$buy_info->amount_from}}>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="inputAmount" class="col-sm-2 col-form-label">How many coins do you want to buy BTC</label>
+            <label for="inputAmount" class="col-sm-2 col-form-label">How many coins do you want to buy</label>
             <div class="col-sm-10">
                 <input type="number" class="form-control" id="inputAmount" placeholder="Enter amount">
             </div>
