@@ -22,7 +22,7 @@ class MainController extends Controller
 
         //Кастыль
         //Refresh price 
-/*        $import = new ImportCryptoCompareData();
+        $import = new ImportCryptoCompareData();
         $params = [
             'query' => [
                'fsyms' => 'BTC,USDT',
@@ -32,7 +32,7 @@ class MainController extends Controller
         $response = $import->client->request('GET','pricemulti',$params);
         $data = $response->getBody()->getContents();
         \DB::select('call sp_resfresh_price(?)',array($data));
-*/
+
         // Validate and Buy 
         $json_data = $request->all();
         $json_data['user_id'] = \Auth::id();
