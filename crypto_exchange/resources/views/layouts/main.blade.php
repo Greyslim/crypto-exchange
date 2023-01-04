@@ -9,8 +9,8 @@
     <title>Crypto-exchange</title>
 </head>
 <body>
-    @if(Session::has("flash_message"))
-        <div class="alert alert-success">{{Session::get('flash_message')}}</div>    
+    @if(Session::has('flash_message'))
+        <div class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('flash_message') }}</div>
     @endif
 
     @yield('content')

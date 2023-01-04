@@ -14,13 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::name('user.')->group(function(){
     Route::get('/main', [\App\Http\Controllers\MainController::class, 'index'])->middleware('auth')->name('main');
- 
+    // Костыль, нужно будет убрать
+    Route::get('/', function () {
+        if(Auth::check()){
+            return redirect(route('user.main'));
+        }
+        return view('login');
+    });
+
     Route::get('/login',function(){
         if(Auth::check()){
             return redirect(route('user.main'));
@@ -44,5 +47,6 @@ Route::name('user.')->group(function(){
     Route::post('/registration', [\App\Http\Controllers\RegistrationController::class, 'save']);
 
 
-    Route::get('/buy', [\App\Http\Controllers\MainController::class, 'buy'])->middleware('auth')->name('buy');
+    Route::get('/buy', [\App\Http\Controllers\MainController::class, 'info'])->middleware('auth')->name('buy');
+    Route::post('/buy', [\App\Http\Controllers\MainController::class, 'buy'])->middleware('auth');
 });

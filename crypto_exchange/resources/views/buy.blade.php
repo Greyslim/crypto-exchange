@@ -10,11 +10,12 @@
         </form>
     </nav>
 
-    <form>
+    <form class=""  method="POST" action="{{route("user.buy")}}">
+        @csrf
         <div class="form-group row">
             <label for="staticCoin" class="col-sm-2 col-form-label">Coin</label>
             <div class="col-sm-10">
-              <input type="text" readonly class="form-control-plaintext" id="staticCoin" value={{$buy_info->coin_name_to}}>
+              <input type="text" readonly class="form-control-plaintext" name='coin_name_to' id="staticCoin" value={{$buy_info->coin_name_to}}>
             </div>
         </div>
 
@@ -28,14 +29,14 @@
         <div class="form-group row">
             <label for="staticBuyForCoin" class="col-sm-2 col-form-label">Buy for Coin</label>
             <div class="col-sm-10">
-              <input type="text" readonly class="form-control-plaintext" id="staticBuyForCoin" value={{$buy_info->coin_name_from}}>
+              <input type="text" readonly class="form-control" name='coin_name_from' id="staticBuyForCoin" value={{$buy_info->coin_name_from}}>
             </div>
         </div>
 
         <div class="form-group row">
             <label for="staticPriceCoin" class="col-sm-2 col-form-label">{{$buy_info->caption_price}}</label>
             <div class="col-sm-10">
-                <input type="text" readonly class="form-control" id="staticPriceCoin" value={{$buy_info->price}}>
+                <input type="text" readonly class="form-control-plaintext" name='price' id="staticPriceCoin" value={{$buy_info->price}}>
             </div>
         </div>
 
@@ -43,18 +44,18 @@
         <div class="form-group row">
             <label for="inputAmountCoin" class="col-sm-2 col-form-label">{{$buy_info->caption_amount_from}}</label>
             <div class="col-sm-10">
-                <input type="text" readonly class="form-control" id="inputAmount" value={{$buy_info->amount_from}}>
+                <input type="text" readonly class="form-control-plaintext" id="inputAmount" value={{$buy_info->amount_from}}>
             </div>
         </div>
 
         <div class="form-group row">
             <label for="inputAmount" class="col-sm-2 col-form-label">How many coins do you want to buy</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" id="inputAmount" placeholder="Enter amount">
+                <input type="number" step=any class="form-control" name='amount' id="inputAmount" placeholder="Enter amount">
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button class="btn btn-success" type="submit">Buy</button>
       </form>
 @endsection
 
