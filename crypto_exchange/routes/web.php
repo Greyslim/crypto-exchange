@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::name('user.')->group(function(){
-    Route::view('/main','main')->middleware('auth')->name('main');
+    Route::get('/main', [\App\Http\Controllers\MainController::class, 'index'])->middleware('auth')->name('main');
  
     Route::get('/login',function(){
         if(Auth::check()){
@@ -42,4 +42,7 @@ Route::name('user.')->group(function(){
     })->name('registration');
 
     Route::post('/registration', [\App\Http\Controllers\RegistrationController::class, 'save']);
+
+
+    Route::get('/buy', [\App\Http\Controllers\MainController::class, 'buy'])->middleware('auth')->name('buy');
 });
