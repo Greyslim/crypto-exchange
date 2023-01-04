@@ -2,7 +2,7 @@
 @section('content')
     <nav class="navbar navbar-dark bg-dark">
         @csrf
-        <form class="pull-right" style="float:right" method="GET" action="{{route("user.logout")}}">
+        <form class="pull-right" method="GET" action="{{route("user.logout")}}">
             <button class="btn btn-success pull-right" type="submit">Logout</button>
         </form>
     </nav>

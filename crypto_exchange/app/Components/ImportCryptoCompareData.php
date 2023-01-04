@@ -11,10 +11,10 @@ class ImportCryptoCompareData
     public function __construct()
     {
         $this->client = new Client([
-            'base_uri' => 'https://min-api.cryptocompare.com/data/',
+            'base_uri' => env('CRYPTO_COMPARE_URL') . '/data/',
             'timeout' => '10',
             'headers' => [
-                'Authorization' => "Bearer 642808033f1312023cd887678a78c85f3a9b27af290241b567a772bb7f52d48d"
+                'Authorization' => "Bearer " . env('CRYPTO_COMPARE_URL_TOKEN')
             ],
             'verify' => false,
         ]);

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <h1>Enter</h1>
+
     <form class="col-3 offset-4 border-4 border rounded" method="POST" action="{{route("user.login")}}">
         @csrf
         <div class="form-group">

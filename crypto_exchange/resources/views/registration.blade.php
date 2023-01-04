@@ -1,6 +1,11 @@
 @extends('layouts.main')
 @section('content')
-    <h1>Registration</h1>
+    <nav class="navbar navbar-dark bg-dark">
+        @csrf
+        <form class="pull-right" method="GET" action="{{route("user.login")}}">
+            <button class="btn btn-success pull-right" type="submit">Back</button>
+        </form>
+    </nav>
     <form class="col-3 offset-4 border-4 border rounded" method="POST" action="{{route("user.registration")}}">
         @csrf
         <div class="form-group">
