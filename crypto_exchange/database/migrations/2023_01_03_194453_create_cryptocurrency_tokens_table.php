@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('cryptocurrency_tokens', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->string('short_name')->unique();
             $table->integer('sys_id')->unique()->unsigned();
             $table->timestamps();
         });

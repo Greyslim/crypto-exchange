@@ -8,14 +8,32 @@
     </nav>
  
     <div>
-        @foreach ($users as $user)
-            <form class="col-3 offset-4 border-4 border rounded" method="GET" action="{{route("user.buy")}}">
-                <div>
-                    {{$user->id}}
-                    <button class="btn btn-lg btn-primary" type="submit" name="id" value={{$user->id}}>Buy</button>
-                </div>
-            </form>   
-        @endforeach
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Short name</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Buy</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($user_coins as $user_coin)
+                    <tr>
+                        <th scope="row">{{$user_coin->id}}</th>
+                        <td>{{$user_coin->name}}</td>
+                        <td>{{$user_coin->short_name}}</td>
+                        <td>{{$user_coin->amount}}</td>
+                        <td>
+                            <form class="" method="GET" action="{{route("user.buy")}}">
+                                <button class="btn btn-success" type="submit" name="id" value={{$user_coin->id}}>Buy</button>
+                            </form>   
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 @endsection
 
