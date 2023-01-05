@@ -59,18 +59,6 @@ class MainController extends Controller
         $coin_id = $request->id;
         $user_id = \Auth::id();
 
-        //Refresh price 
-        $import = new ImportCryptoCompareData();
-        $params = [
-            'query' => [
-               'fsyms' => 'BTC,USDT',
-               'tsyms' => 'USDT,BTC',
-            ]
-         ];
-        $response = $import->client->request('GET','pricemulti',$params);
-        $data = $response->getBody()->getContents();
-        \DB::select('call sp_resfresh_price(?)',array($data));
-
         $data = \DB::select('call sp_get_buy_info(?,?)',array($user_id, $coin_id));
 
         if($data){

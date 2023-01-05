@@ -57,5 +57,47 @@
 
         <button class="btn btn-success" type="submit">Buy</button>
       </form>
+
+<script>
+   let apiKey = "642808033f1312023cd887678a78c85f3a9b27af290241b567a772bb7f52d48d";
+   let socket = new WebSocket("wss://streamer.cryptocompare.com/v2?api_key=" + apiKey);
+
+    socket.onopen = function(e) {
+        let money = document.getElementById('staticCoin').value;
+        let subRequest;
+        if (money == 'BTC'){
+            subRequest = {
+                "action": "SubAdd",
+                "subs": ["0~Binance~BTC~USDT"]
+            };
+        } else {
+            subRequest = {
+                "action": "SubAdd",
+                "subs": ["0~Binance~USDT~BTC"]
+            };
+        }
+        socket.send(JSON.stringify(subRequest));
+    };
+
+    socket.onmessage = function(event) {
+        const obj = JSON.parse(event.data);
+        if (obj.TYPE == 0){
+            document.getElementById('staticPriceCoin').value = obj.P;
+        }
+    };
+
+    socket.onclose = function(event) {
+    if (event.wasClean) {
+        console.log(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`);
+    } else {
+        console.log('[close] Соединение прервано');
+    }
+    };
+
+    socket.onerror = function(error) {
+        console.log(`[error]`);
+    };  
+</script>
+
 @endsection
 

@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
+    public function index()
+    {
+        return csrf_token(); 
+    }
+
     public function login(Request $request){
         if(Auth::check()){
             return redirect(route('user.main'));

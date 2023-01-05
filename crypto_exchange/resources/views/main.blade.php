@@ -26,6 +26,7 @@
                         <td>{{$user_coin->short_name}}</td>
                         <td>{{$user_coin->amount}}</td>
                         <td>
+                            @csrf
                             <form class="" method="GET" action="{{route("user.buy")}}">
                                 <button class="btn btn-success" type="submit" name="id" value={{$user_coin->id}}>Buy</button>
                             </form>   

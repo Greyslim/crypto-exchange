@@ -30,7 +30,7 @@
             @enderror
         </div>
         <div class="form-group">
-            <button class="btn btn-lg btn-primary" type="submit" name="sendMe" value="1">Registration</button>
+            <button class="btn btn-lg btn-primary" type="submit">Registration</button>
         </div>
     </form>
 @endsection

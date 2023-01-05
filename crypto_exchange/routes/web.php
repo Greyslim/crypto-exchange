@@ -31,6 +31,7 @@ Route::name('user.')->group(function(){
         return view('login');
     })->name('login');
     Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login']);
+    Route::get('/get_token', [\App\Http\Controllers\LoginController::class, 'index']);
 
     Route::get('/logout',function(){
         Auth::logout();
