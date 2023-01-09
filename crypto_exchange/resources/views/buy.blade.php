@@ -52,6 +52,9 @@
             <label for="inputAmount" class="col-sm-2 col-form-label">How many coins do you want to buy</label>
             <div class="col-sm-10">
                 <input type="number" step=any class="form-control" name='amount' id="inputAmount" placeholder="Enter amount">
+                @error('amount')
+                <div class="alert alert-danger">{{$message}}</div>
+                @enderror
             </div>
         </div>
 

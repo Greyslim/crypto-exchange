@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SaveRegistrationRequest;
 use Auth;
 use DB;
 use App\Models\User;
@@ -9,16 +10,12 @@ use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
 {
-    public function save(Request $request){
+    public function save(SaveRegistrationRequest $saverequest){
         if(Auth::check()){
             return redirect(route('user.main'));
         }
 
-        $validateFields = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+        $validateFields = $saverequest->validated();
 
         if(User::where('email', $validateFields['email'])->exists()){
             return redirect(route('user.registration'))->withErrors([

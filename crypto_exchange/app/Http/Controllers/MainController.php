@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Components\ImportCryptoCompareData;
+use App\Http\Requests\BuyMainRequest;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -14,11 +15,8 @@ class MainController extends Controller
         return view('main', compact('user_coins'));
     }
 
-    public function buy(Request $request){
-        $request->validate([
-            'price' => 'required',
-            'amount' => 'required',
-        ]);
+    public function buy(BuyMainRequest $request){
+        $json_data = $request->validated();
 
         //Кастыль
         //Refresh price 
