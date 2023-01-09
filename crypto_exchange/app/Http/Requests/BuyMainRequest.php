@@ -25,7 +25,7 @@ class BuyMainRequest extends FormRequest
     {
         return [
             'price' => 'required',
-            'amount' => 'required',
+            'amount' => 'required|decimal:10,17',
         ];
     }
 }
